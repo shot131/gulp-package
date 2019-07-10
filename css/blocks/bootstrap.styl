@@ -38,6 +38,7 @@ for $name, $i in rupture.scale-names
 bootstrap-cols($name)
     for num in (1..12)
         .col-{$name}-{num}
+            flex 0 0 unit(100/12*num, '%')
             width unit(100/12*num, '%')
         .offset-{$name}-{num}
             margin-left unit(100/12*num, '%')
@@ -46,7 +47,17 @@ bootstrap-cols($name)
     .col-{$name}-2_4
         width unit(100/12*2.4, '%')
     .col-{$name}
+        flex-basis 0
+        flex-grow 1
+        max-width 100%
+    .col-{$name}-auto
+        flex 0 0 auto
         width auto
+        max-width 100%
+    .order-{$name}-first
+        order -1
+    .order-{$name}-last
+        order 13
         
 for $name, $i in rupture.scale-names
     if $name == 'xs'
